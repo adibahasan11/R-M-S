@@ -9,7 +9,7 @@
 <div class="content">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-8" style="padding-left: 150px;">
+            <div class="col-md-10" style="padding-left: 250px;">
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title">Your Profile</h4>
@@ -33,7 +33,7 @@
                     </div><br>
                    
                     <br>
-                    <button type="submit" class="btn btn-primary pull-right">Change Password</button>
+                    <!--<button type="submit" class="btn btn-primary pull-right">Update Profile</button>-->
                     <div class="clearfix"></div>
                   </form>
                 </div>

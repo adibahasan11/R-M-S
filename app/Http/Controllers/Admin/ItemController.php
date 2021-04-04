@@ -154,11 +154,11 @@ class ItemController extends Controller
      */
     public function destroy($id)
     {
-        $item = DB::select('SELECT * FROM items WHERE item_id = ?',[$item_id]);
-        if (file_exists('uploads/item/'.$item->image))
+        $item = DB::select('SELECT * FROM items WHERE item_id = ?',[$id]);
+        /*if (file_exists('uploads/item/'.$item->image))
         {
             unlink('uploads/item/'.$item->image);
-        }
+        }*/
         DB::delete('delete from items where item_id = ?',[$id]);
         return redirect('/menu')->with('successMsg','Item successfully Deleted');
     }

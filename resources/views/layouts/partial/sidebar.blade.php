@@ -12,7 +12,7 @@
         <li class= "{{ Request::is('adminHome*') ? 'active': '' }}" >
             <a class="nav-link" href="/adminHome">
               <i class="material-icons">dashboard</i>
-              <p>Dashboard</p>
+              <p>Home</p>
             </a>
           </li>
           <li class="{{ Request::is('user*') ? 'active': '' }}">
@@ -40,7 +40,7 @@
             </a>
           </li>
           <li class="{{ Request::is('contact*') ? 'active': '' }}">
-            <a class="nav-link" href="./icons.html">
+            <a class="nav-link" href="{{ route( 'contact.index' ) }}">
               <i class="material-icons">language</i>
               <p>Contact</p>
             </a>

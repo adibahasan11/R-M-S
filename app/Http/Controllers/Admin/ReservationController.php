@@ -31,9 +31,22 @@ class ReservationController extends Controller
         Toastr::success('Reservation successfully confirmed.','Success',["positionClass" => "toast-top-right"]);
         return redirect()->back();
     }
-    public function destory($id){
-        Reservation::find($id)->delete();
-        Toastr::success('Reservation successfully deleted.','Success',["positionClass" => "toast-top-right"]);
+    public function decline($id){
+        $reservation = Reservation::find($id);
+        $status = 'Declined';
+        $reservation->status1 = $status;
+        //DB::update('UPDATE reservations 
+        //    SET status1 = ?
+        //    WHERE id = ?',[$status, $id]);
+        $reservation->save();
+        //Notification::route('mail',$reservation->email )
+          //  ->notify(new ReservationConfirmed());
+        Toastr::success('Reservation successfully confirmed.','Success',["positionClass" => "toast-top-right"]);
         return redirect()->back();
+    }
+    public function destory($id){
+        DB::delete('delete from reservations where id = ?',[$id]);
+        Toastr::success('Reservation successfully deleted.','Success',["positionClass" => "toast-top-right"]);
+        return redirect('/Reservation');
     }
 }

@@ -15,7 +15,7 @@
                   <h4 class="card-title">Add New Item</h4>
                 </div>
                 <div class="card-body">
-                  <form method="POST" action="/item-add" enctype="multipart/form-data">
+                  <form method="POST" action="/menu/item-add" enctype="multipart/form-data">
                   @csrf
                     <div class="row">
                       <div class="col-md-6">

@@ -13,41 +13,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
-
 Route::get('/','App\Http\Controllers\Admin\DashboardController@index');
-
-Route::get('/adminHome','App\Http\Controllers\HomeController@index');
-
+Route::post('sendMessage','App\Http\Controllers\ContactController@store')->name('sendMessage.store');
 Route::post('reserve','App\Http\Controllers\ReservationController@reserve');
-
-//Route::post('/contact','ContactController@sendMessage')->name('contact.send');
 
 Route::get('/logout', function () {
     Auth::logout();
     return Redirect::to('/login');
 });
 Auth::routes();
-
-Route::post('reserve','App\Http\Controllers\ReservationController@reserve');
-
-Route::post('contact','App\Http\Controllers\ContactController@sendMessage');
+Route::get('/adminHome','App\Http\Controllers\HomeController@index');
 
 Route::get('/Reservation','App\Http\Controllers\Admin\ReservationController@index')->name('Reservation.index');
 Route::post('Reservation/{id}','App\Http\Controllers\Admin\ReservationController@status')->name('Reservation.status');
-Route::delete('Reservation/{id}','App\Http\Controllers\Admin\ReservationController@destroy')->name('Reservation.destroy');
+Route::post('Reservation/decline/{id}','App\Http\Controllers\Admin\ReservationController@decline')->name('Reservation.decline');
+
+Route::delete('/Reservation/Reservation-destroy/{id}','App\Http\Controllers\Admin\ReservationController@destory')->name('Reservation.destroy');
 
 Route::get('/menu','App\Http\Controllers\Admin\ItemController@index');
 
-/*Route::get('/home', function () {
-    return view('home');
-});*/
-
-/*Route::get('/slider', function () {
-    return view('admin.slider.index');
-});*/
 Route::get('/user', function () {
     return view('admin.user.user');
 });
@@ -65,7 +49,11 @@ Route::post('/menu/item-add','App\Http\Controllers\Admin\ItemController@store');
 Route::get('/menu/item-create/{item_id}','App\Http\Controllers\Admin\ItemController@edit');
 Route::post('/menu/item-create/{item_id}','App\Http\Controllers\Admin\ItemController@update');
 
-//Route::get('item-destroy/{item_id}','App\Http\Controllers\Admin\ItemController@destroy');
+Route::delete('/menu/item-destroy/{item_id}','App\Http\Controllers\Admin\ItemController@destroy');
 
 Route::get('/menu/category-create/{id}','App\Http\Controllers\Admin\CategoryController@edit');
 Route::post('/menu/category-create/{id}','App\Http\Controllers\Admin\CategoryController@update');
+
+Route::delete('/menu/category-destroy/{id}','App\Http\Controllers\Admin\ItemController@destroy');
+
+Route::resource('contact', 'App\Http\Controllers\Admin\ContactController');

@@ -61,7 +61,7 @@
                           <a class="btn btn-sm" rel="tooltip" title="Edit Category" href="/menu/category-create/{{ $category->id }}" style="background-color: #5c9233;">
                             <i class="material-icons">mode_edit</i>
                           </a>
-                          <form id="delete-form-{{ $category->id }}" action="/menu/category.destroy/{{ $category->id }}" style="display: none;" method="POST">
+                          <!--<form id="delete-form-{{ $category->id }}" action="/menu/category-destroy/{{ $category->id }}" style="display: none;" method="POST">
                           @csrf
                           @method('DELETE')
                           </form>
@@ -74,12 +74,12 @@
                             event.preventDefault();
                           }">
                             <i class="material-icons">delete</i>
-                          </button>
+                          </button>-->
                           </td>
                         </tr>
                         @endforeach
                       </tbody>
-                    </table>
+                  </table>
                   </div>
                 </div>
               </div><br>
@@ -139,7 +139,7 @@
                           <a class="btn btn-sm" rel="tooltip" title="Edit Item" href="/menu/item-create/{{ $item->item_id }}" style="background-color: #5c9233;">
                             <i class="material-icons">mode_edit</i>
                           </a>
-                          <form id="delete-form-{{ $item->id }}" action="/menu/item-destroy/{{ $item->item_id }}" style="display: none;" method="GET">
+                          <form id="delete-form-{{ $item->id }}" action="/menu/item-destroy/{{ $item->item_id }}" style="display: none;" method="POST">
                             @csrf
                             @method('DELETE')
                           </form>

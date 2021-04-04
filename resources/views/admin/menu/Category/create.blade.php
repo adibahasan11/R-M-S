@@ -16,7 +16,7 @@
                 </div>
                 <div class="card-body">
                 <br>
-                  <form method="POST" action="/add" enctype="multipart/form-data">
+                  <form method="POST" action="/menu/add" enctype="multipart/form-data">
                   @csrf
                     <div class="row">
                       <div class="col-md-6">

@@ -62,6 +62,8 @@
                           <td class="text-primary">
                               @if ( $reservation->status1 == 'Confirmed')
                                 <span class= "label label-info">Confirmed</span>
+                              @elseif ( $reservation->status1 == 'Declined')
+                                <span class= "label label-info">Declined</span>
                               @else
                                 <span class= "label label-danger">Not Confirmed yet</span>
                               @endif
@@ -80,12 +82,24 @@
                                         }">
                                   <i class="material-icons">done</i>
                               </a>
-                            @endif
-                            <form id="delete-form-{{ $reservation->id }}" action="{{ route('Reservation.destroy', $reservation->id) }}" style="display: none;">
+                              <form id="status-decline-{{ $reservation->id }}" action="{{ route('Reservation.decline', $reservation->id) }}" style="display: none;" method="POST">
+                                @csrf
+                              </form>
+                              <button rel="tooltip" title="Decline" type="button" class="btn btn-sm btn-primary" 
+                                onclick=" if(confirm('Are you sure you want to decline this request by phone?')){
+                                  event.preventDefault();
+                                  document.getElementById('status-decline-{{ $reservation->id }}').submit();
+                                        }else {
+                                          event.preventDefault();
+                                        }">
+                                  <i class="material-icons">close</i>
+                              </a>
+                            @else
+                            <form id="delete-form-{{ $reservation->id }}" action="/Reservation/Reservation-destroy/{{ $reservation->id }}" style="display: none;" method="POST">
                               @csrf
                               @method('DELETE')
                             </form>
-                            <button rel="tooltip" title="Remove" type="button" class="btn btn-primary btn-sm" onclick="if(confirm('Are you sure? You want to delete this?')){
+                            <button rel="tooltip" title="Remove" type="button" class="btn btn-danger btn-sm" onclick="if(confirm('Are you sure? You want to delete this?')){
                               event.preventDefault();
                               document.getElementById('delete-form-{{ $reservation->id }}').submit();
                               }else {
@@ -94,6 +108,7 @@
                                 <i class="material-icons">delete
                                 </i>
                             </button>
+                            @endif
                             </td>
                         </tr>
                         @endforeach

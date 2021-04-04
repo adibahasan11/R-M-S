@@ -2,29 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Models\Contact;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    public function sendMessage(Request $request)
+    public function store(Request $request)
     {
-        $this->validate($request,[
-            'name' => 'required',
-            'email' => 'required',
-            'subject' => 'required',
-            'message' => 'required',
-        ]);
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $subject = $request->input('subject');
+        $message = $request->input('message');
 
-        $contact = new Contact();
-        $contact->name = $request->name;
-        $contact->email = $request->email;
-        $contact->subject = $request->subject;
-        $contact->message = $request->message;
-        $contact->save();
-
+        DB::insert('insert into contacts (name, email, subject, message) values(?, ?, ?, ?)',[$name, $email, $subject, $message]);
         Toastr::success('Your message successfully send.','Success',["positionClass" => "toast-top-right"]);
-        return view('welcome');
+        return redirect('/');
     }
 }

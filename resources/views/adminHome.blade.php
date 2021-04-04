@@ -5,8 +5,8 @@
 
 @endpush
 <div class="content">
-        <div class="container-fluid">
-          <div class="row" style="padding-left:200px;">
+        <div>
+          <div class="row" style="padding-left:120px;">
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
                 <div class="card-header card-header-primary card-header-icon">
@@ -25,7 +25,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="col-lg-4 col-md-6 col-sm-6">
               <div class="card card-stats">
                 <div class="card-header card-header-primary card-header-icon">
                   <div class="card-icon">
@@ -54,7 +54,7 @@
                 <div class="card-footer">
                   <div class="stats">
                     <i class="material-icons">update</i>
-                    <a href="/menu">All Messages.</a>
+                    <a href="/contact">All Messages.</a>
                   </div>
                 </div>
               </div>
@@ -111,6 +111,8 @@
               </div>
             </div>
           </div>-->
+        </div>
+        <div>
           <div class="row">
             <!--<div class="col-lg-6 col-md-12">
               <div class="card">
@@ -357,7 +359,7 @@
                 </div>
               </div>
             </div>-->
-            <div class="col-lg-12 col-md-6" style="padding-left: 200px; padding-right: 300px;">
+            <div class="col-lg-12 col-md-6" style="padding-left: 110px; padding-right: 150px;">
               <div class="card">
                 <div class="card-header card-header-success">
                   <h4 class="card-title">Reservation Requests</h4>
@@ -418,7 +420,7 @@
                               <form id="status-form-{{ $reservation->id }}" action="{{ route('Reservation.status', $reservation->id) }}" style="display: none;" method="POST">
                                 @csrf
                               </form>
-                              <button rel="tooltip" title="Confirm?" type="button" class="btn btn-primary btn-link btn-sm" 
+                              <button rel="tooltip" title="Confirm?" type="button" class="btn btn-success btn-link btn-sm" 
                                 onclick=" if(confirm('Are you sure you want to verify this request by phone?')){
                                   event.preventDefault();
                                   document.getElementById('status-form-{{ $reservation->id }}').submit();
@@ -426,6 +428,18 @@
                                           event.preventDefault();
                                         }">
                                   <i class="material-icons">done</i>
+                              </a>
+                              <form id="status-decline-{{ $reservation->id }}" action="{{ route('Reservation.decline', $reservation->id) }}" style="display: none;" method="POST">
+                                @csrf
+                              </form>
+                              <button rel="tooltip" title="Decline" type="button" class="btn btn-sm btn-primary btn-link" 
+                                onclick=" if(confirm('Are you sure you want to verify this request by phone?')){
+                                  event.preventDefault();
+                                  document.getElementById('status-decline-{{ $reservation->id }}').submit();
+                                        }else {
+                                          event.preventDefault();
+                                        }">
+                                  <i class="material-icons">close</i>
                               </a>
                             @endif
                             </td>

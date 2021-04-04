@@ -96,7 +96,7 @@
                 <div class="container">
                     <div class="header-content">
                         <h4 class="header-title">BEST FOOD</h4>
-                        <p class="header-sub-title">create your own slogan</p>
+                        <p class="header-sub-title">Enjoy the highest quality food!</p>
                     </div> <!-- /.header-content -->
                 </div>
             </div>
@@ -105,7 +105,7 @@
                 <div class="container">
                     <div class="header-content">
                         <h3 class="header-title">BEST SNACKS</h3>
-                        <p class="header-sub-title">create your own slogan</p>
+                        <p class="header-sub-title">Deliciousness jumping into the mouth</p>
                     </div> <!-- /.header-content -->
                 </div>
             </div>
@@ -114,7 +114,7 @@
                 <div class="container">
                     <div class="header-content ">
                         <h3 class="header-title">BEST DRINKS</h3>
-                        <p class="header-sub-title">create your own slogan</p>
+                        <p class="header-sub-title">An oasis of pleasure.</p>
                     </div> <!-- /.header-content -->
                 </div>
             </div>
@@ -179,22 +179,22 @@
                                             <img src="{{asset('frontend/images/pic3.png')}}"  style="height: 567px;"/>
                                         </li>
                                         <li>
-                                            <img src="{{asset('frontend/images/pic4.png')}}"  style="height: 567px;"/>
+                                            <img src="{{asset('frontend/images/pic7.png')}}"  style="height: 567px;"/>
                                         </li>
                                         <li>
                                             <img src="{{asset('frontend/images/menu-gallery/menu6.jpg')}}"  style="height: 567px;"/>
                                         </li>
                                         <li>
-                                            <img src="{{asset('frontend/images/menu-gallery/menu7.jpg')}}"  style="height: 567px;"/>
+                                            <img src="{{asset('frontend/images/pic9.png')}}"  style="height: 567px;"/>
                                         </li>
                                         <li>
                                             <img src="{{asset('frontend/images/menu-gallery/menu8.jpg')}}"  style="height: 567px;"/>
                                         </li>
                                         <li>
-                                            <img src="{{asset('frontend/images/menu-gallery/menu9.jpg')}}"  style="height: 567px;"/>
+                                            <img src="{{asset('frontend/images/pic10.png')}}"  style="height: 567px;"/>
                                         </li>
                                         <li>
-                                            <img src="{{asset('frontend/images/menu-gallery/menu10.jpg')}}"  style="height: 567px;"/>
+                                            <img src="{{asset('frontend/images/pic11.png')}}"  style="height: 567px;"/>
                                         </li>
                                        
                                     </ul>
@@ -286,13 +286,13 @@
                                 <div class="flexslider">
                                     <ul class="slides">
                                         <li>
-                                            <img src="{{asset('frontend/images/indoor3.png')}}"  style="height: 510px;"/>
+                                            <img src="{{asset('frontend/images/indoor3.png')}}"  style="height: 540px; width: 950px;"/>
                                         </li>
                                         <li>
-                                            <img src="{{asset('frontend/images/indoor4.png')}}"  style="height: 510px;"/>
+                                            <img src="{{asset('frontend/images/indoor4.png')}}"  style="height: 540px; width: 857px;"/>
                                         </li>
                                         <li>
-                                            <img src="{{asset('frontend/images/indoor1.png')}}"  style="height: 510px;"/>
+                                            <img src="{{asset('frontend/images/indoor1.png')}}"  style="height: 540px; width: 857px;"/>
                                         </li>
                                     </ul>
                                 </div>
@@ -422,7 +422,7 @@
         </section>
 
         <section id="contact" class="contact">
-            <div class="container-fluid color-bg">
+            <div class="container-fluid" style="background-color: #B677D4;">
                 <div class="row dis-table">
                     <div class="hidden-xs col-sm-6 dis-table-cell">
                         <h2 class="section-title">Contact With us</h2>
@@ -450,21 +450,19 @@
             </div>
         </section>
 
-        <div class="container-fluid">
+        <!--<div class="container-fluid">
             <div class="row">
                 <div id="map-canvas"></div>
             </div>
-        </div>
-
-
+        </div>-->
 
         <section class="contact-form">
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
                         <div class="row">
-                             <form class="contact-form" method="post" action="/contact">
-                                
+                             <form class="contact-form" method= "POST" action="{{ route('sendMessage.store') }}">  
+                                @csrf                              
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <input  name="name" type="text" class="form-control" id="name" required="required" placeholder="  Name">
@@ -500,7 +498,7 @@
                     <div class="col-md-6 col-md-offset-3">
                         <div class="copyright text-center">
                             <p>
-                                &copy; Copyright, 2021 <a href="#">No. 32 Boutique Cafe</a> Theme by <a href="http://themewagon.com/"  target="_blank">ThemeWagon</a>
+                                &copy; Copyright, 2021 <a href="#">No. 32 Boutique Cafe</a>
                             </p>
                         </div>
                     </div>
@@ -508,8 +506,7 @@
             </div>
         </footer>
 
-    
-        <script src="{{asset('frontend/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('frontend/js/bootstrap.min.js')}}"></script>
         <script src="{{asset('frontend/js/bootstrap-datetimepicker.min.js')}}"></script>
         <script src="{{asset('frontend/js/owl.carousel.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('frontend/js/jquery.mixitup.min.js')}}" ></script>
