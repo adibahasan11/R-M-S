@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','App\Http\Controllers\Admin\DashboardController@index');
 Route::post('sendMessage','App\Http\Controllers\ContactController@store')->name('sendMessage.store');
-Route::post('reserve','App\Http\Controllers\ReservationController@reserve');
+Route::post('/reserve','App\Http\Controllers\ReservationController@reserve');
 
 Route::get('/logout', function () {
     Auth::logout();
